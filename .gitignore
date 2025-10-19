@@ -1,5 +1,5 @@
 # ===============================
-# ARCARDIA — .gitignore actualizado
+# ARCARDIA — .gitignore actualizado (final)
 # Proyecto: React + Vite + Tailwind + Firebase + GitHub Actions
 # ===============================
 
@@ -37,6 +37,19 @@ Thumbs.db
 *.tmp
 *.log
 *.bak
+*.swp
+
+# Archivos comprimidos y backups
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
+*.bak
+*.old
+*_backup.*
 
 # Archivos del sistema operativo
 ehthumbs.db
@@ -46,10 +59,10 @@ desktop.ini
 # Archivos de dependencias de GitHub Actions (cache)
 .github/_disabled-workflows/
 
-# Archivos de documentación y backup local (opcionales)
+# Archivos de documentación y backups locales (opcionales)
 docs/*.txt
 docs/*.md
-!README.md  # mantén visible el README principal
+!README.md  # mantener visible el README principal
 
 # ===============================
 # FIN DEL .gitignore
