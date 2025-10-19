@@ -2,7 +2,7 @@ name: Deploy to Firebase Hosting (live)
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -13,10 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use Node 18
+      # Usar Node 20 (requerido por firebase-tools >=14)
+      - name: Use Node 20
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
 
       - name: Install dependencies
@@ -25,7 +26,12 @@ jobs:
       - name: Build (Vite)
         run: npm run build
 
-      # Deploy con la acción oficial de Firebase Hosting
+      # (opcional) reforzar Node 20 antes del deploy por si otra acción lo cambia
+      - name: Ensure Node 20 for deploy
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Deploy to Firebase Hosting (live)
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -33,5 +39,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           channelId: live
           projectId: arcadiaapp-dev
-
 
