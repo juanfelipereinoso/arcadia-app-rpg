@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Paleta/tema Arcadia (versión-old) === */
+:root{
+  --violeta:#3D1061; /* Elegancia/innovación */
+  --verde:#4CAF50;   /* Comunidad/crecimiento */
+  --magenta:#CC3363; /* Energía humana */
+  --gris:#ADA8B6;
+  --bg:#120424;
+  --card:#1a0a2f;
+  --text:#F5F3F7;
+
+  /* extras nuevos que usas en components */
+  --focus:#a78bfa;
+}
+
+/* Base del tema (alto completo y fondo gradiente) */
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply bg-bg text-text; }
+}
+
+/* Utilidades de tema */
+.bg-bg { background: linear-gradient(180deg,var(--bg) 0%, #160733 100%); }
+.text-text { color: var(--text); }
+.text-muted { color: #d9d3e2; }
+.card-border { border-color: rgba(255,255,255,.08); }
+
+/* Glass (versión-old, más saturado) */
+.glass { background: rgba(255,255,255,.06); backdrop-filter: saturate(140%) blur(8px); }
+
+/* Suavidad de scroll y offset para anclas */
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 84px; }
+
+/* Accesibilidad: focus visible (de la versión nueva) */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--focus);
+  outline-offset:2px;
+}
