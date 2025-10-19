@@ -9,7 +9,8 @@
     "build:fb": "vite build --base=/",
     "build:pages": "vite build --base=/arcadia-app-rpg/",
     "preview": "vite preview --port 4173",
-    "deploy:fb": "npm run build:fb && firebase deploy --only hosting"
+    "deploy:fb": "npm run build:fb && firebase deploy --only hosting",
+    "publish:fb": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -21,6 +22,8 @@
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.4.0",
-    "vite": "^5.4.0"
+    "vite": "^5.4.0",
+    "vite-plugin-pwa": "^1.1.0",
+    "workbox-window": "^7.3.0"
   }
 }
